@@ -1,0 +1,6 @@
+= Aufgabe 12 - Observerpattern
+
+*To-Do*
+
+* Observerpattern coden
+* Observerpattern in Visual-Paradim oder StarLab in UML umwandeln
