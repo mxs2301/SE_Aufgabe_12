@@ -2,13 +2,18 @@ package com.schopf;
 
 import java.util.ArrayList;
 
-public class SpecificSubject{
+public class SpecificSubject implements Subject{
 	private ArrayList<Subscriber> subscribers = new ArrayList<>(); 
 	private boolean state;
+	private Integer value = 0;
 
 
 	public boolean getState(){
 		return state;
+	}
+
+	public Integer getValue(){
+		return value;
 	}
 
 	public void setState(int input){
@@ -27,6 +32,12 @@ public class SpecificSubject{
 		}
 	}
 
+	public void setValue(Integer value){
+		this.value = value;
+		updateSubscribers();
+	}
+
+
 	public void attach(Subscriber e){
 		subscribers.add(e);
 	}
@@ -35,13 +46,17 @@ public class SpecificSubject{
 		subscribers.remove(e);
 	}
 
-	public void ret(){
-		subscribers.get(0);
-	}
 
 	public void updateSubscribers(){
 		for(int i = 0; i<subscribers.size(); i++){
 			subscribers.get(i).update();
 		}
 	}
+
+	public void updateValueSubscribers(){
+		for(int i = 0; i<subscribers.size(); i++){
+			subscribers.get(i).updateValue();
+		}
+	}
+
 }
